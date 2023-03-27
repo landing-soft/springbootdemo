@@ -1,25 +1,20 @@
 package com.example.model;
 
-//import jakarta.persistence.*;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-//@Entity
-//@Table(name = "contactinfo")
-//@NoArgsConstructor
+@Entity
+@NoArgsConstructor
 @Getter
 @Setter
 @AllArgsConstructor
 public class ContactInfo {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column(name = "voornaam")
