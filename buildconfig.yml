@@ -1,7 +1,7 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: mywebsite
+  name: springboot-restapi
   labels:
     app: mywebsite
 spec:
@@ -9,7 +9,7 @@ spec:
     type: Git
     git:
       uri: https://github.com/landing-soft/springbootdemo
-#    contextDir: httpd-hello-world
+      ref:
   strategy:
     type: Docker
     dockerStrategy:
@@ -17,4 +17,4 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: mywebsite:latest
+      name: :latest
