@@ -26,7 +26,8 @@ public class ContactInfoController {
     public List<ContactInfo> getAllContactInfo() {
         return List.of(new ContactInfo(1,"Jamie","Spekman","landingsoft@hotmail.com"),
                         new ContactInfo(2,"Dwayne","Johnson", "TheRock@hollywood.com"),
-                        new ContactInfo(3,"Marcus","Lemonis", "Marcus@TheProfit.com"));
+                        new ContactInfo(3,"Marcus","Lemonis", "Marcus@TheProfit.com"),
+                        new ContactInfo(4,"Sharon", "Markt", "unknown@mail.com"));
 // change
 //        return List.of(new ContactInfo(1,"Jamie","Spekman","landingsoft@hotmail.com"),
 //                new ContactInfo(2,"Dwayne","Johnson", "TheRock@hollywood.com"),new ContactInfo(1,"Sandra","Bullock","Sandra@Hollywwod"));
