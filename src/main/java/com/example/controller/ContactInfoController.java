@@ -36,6 +36,10 @@ public class ContactInfoController {
         return new ContactInfo(1,"Sandra","Bullock","Sandra@Hollywwod");
     }
 
+    public ContactInfo DeleteById() {
+        return new ContactInfo(1,"Sandra","Bullock","Sandra@Hollywwod");
+    }
+
 
 
 
