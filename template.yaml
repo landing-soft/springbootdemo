@@ -1,0 +1,82 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: springboot-api
+  annotations:
+    openshift.io/display-name: A simple rest api
+    description: for demo purposes
+  labels:
+    app: springboot-api
+
+
+objects:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+    labels:
+      app: contactsapi
+    name: contactsapi
+    namespace:
+  spec:
+    lookupPolicy:
+      local: false
+
+- apiVersion: build.openshift.io/v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+    labels:
+      app: contactsapi
+    name: contactsapi
+
+  spec:
+    failedBuildsHistoryLimit: 5
+    nodeSelector: null
+
+    output:
+      to:
+        kind: ImageStreamTag
+        name: contactsapi:latest
+
+    source:
+      git: https://github.com/landing-soft/springbootdemo
+      uri:
+        ref: master
+      contextDir:
+
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: openjdk-17-ubi8
+          namespace: openshift
+      type: Source
+      successfulBuildsHistoryLimit: 5
+
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+    labels:
+      app:
+    name: contactsapi
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      app: contactsapi
+      deploymentconfig: contactsapi
+    strategy:
+      activeDeadlineSeconds: 21600
+      resources: {}
+      rollingParams:
+        intervalSeconds: 1
+        maxSurge: 25%
+        maxUnavailable: 25%
+        timeoutSeconds: 600
+        updatePeriodSeconds: 1
+      type: Rolling
+
+    type: ImageChange
+
