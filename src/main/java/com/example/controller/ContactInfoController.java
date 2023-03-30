@@ -25,7 +25,7 @@ public class ContactInfoController {
     @GetMapping("")
     public List<ContactInfo> getAllContactInfo() {
         return List.of(new ContactInfo(1,"Jamiee","Spekman","landingsoft@hotmail.com"),
-                        new ContactInfo(2,"Dwayneeeeeeeeeeeeeee","Johnson", "TheRock@hollywood.com"),
+                        new ContactInfo(2,"Dwayne","Johnson", "TheRock@hollywood.com"),
                         new ContactInfo(3,"Marcussssssssssssss","Lemonis", "Marcus@TheProfit.com"),
                         new ContactInfo(4,"Sharon", "Markt", "unknown@mail.com"));
 // change
